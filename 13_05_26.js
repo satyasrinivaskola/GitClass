@@ -1,5 +1,6 @@
 
 
+
 let user_list=document.getElementById("user-list");
 function submit(){
 let input_data=document.getElementById("input_data").value;
@@ -24,7 +25,7 @@ let list_item=document.createElement("li")
 
 
 console.log(document.getElementById("sub_div"))
-/*
+
 let data=`WELCOME dev dev
 
 Pitapuram `
@@ -40,4 +41,3 @@ console.log(data.length)
 i=data.indexOf("dev")
 console.log(i)
 console.log(data[6])
-*/ 
