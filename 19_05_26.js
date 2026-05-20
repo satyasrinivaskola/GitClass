@@ -1,3 +1,14 @@
+const arr=[1,5,6,8];
+
+console.log(b+"Letter")
+const arr2=[1,5,6,8];
+console.log(...arr2)
+console.log(arr);
+const sum=arr.reduce((acc,list)=>{if(list/2!==0){
+
+acc.push(list)
+}return acc},[]);
+console.log(sum)
 /*let Village
 let para=document.getElementById("para");
 function click_fn(event){
@@ -14,7 +25,7 @@ console.log(event)}
 
 let click_btn=document.getElementById("click_btn");
 click_btn.addEventListener("mouseover",click_fn);
-*/
+
 console.log(new Date())
 let current_date=new Date()
 let updated=current_date.toLocaleDateString();
@@ -35,4 +46,4 @@ select_box.addEventListener("change", function() {
 
     console.log(select_box.value);
 
-});
+});*/

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Countdown App</title>
+
+  <style>
+    body{
+      font-family: Arial;
+      background-color:#f5f5f5;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      background-color:white;
+      padding:30px;
+      border-radius:10px;
+      width:350px;
+      text-align:center;
+      box-shadow:0px 0px 10px lightgray;
+    }
+
+    input{
+      width:90%;
+      padding:10px;
+      margin-top:10px;
+      margin-bottom:15px;
+      border-radius:5px;
+      border:1px solid gray;
+    }
+
+    button{
+      padding:10px 15px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      margin:5px;
+      color:white;
+    }
+
+    .start-btn{
+      background-color:green;
+    }
+
+    .pause-btn{
+      background-color:orange;
+    }
+
+    .reset-btn{
+      background-color:red;
+    }
+
+    #countdown{
+      font-size:28px;
+      margin-top:20px;
+      font-weight:bold;
+    }
+
+    .green{
+      color:green;
+    }
+
+    .orange{
+      color:orange;
+    }
+
+    .red{
+      color:red;
+    }
+
+    #message{
+      margin-top:15px;
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    #clock{
+      margin-top:10px;
+      color:gray;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Event Countdown App</h2>
+
+    <input type="text" id="eventName" placeholder="Enter Event Name">
+
+    <input type="datetime-local" id="eventDate">
+
+    <br>
+
+    <button class="start-btn" id="startBtn">
+      Start
+    </button>
+
+    <button class="pause-btn" id="pauseBtn">
+      Pause
+    </button>
+
+    <button class="reset-btn" id="resetBtn">
+      Reset
+    </button>
+
+    <div id="countdown">
+      00 : 00 : 00 : 00
+    </div>
+
+    <div id="message"></div>
+
+    <div id="clock"></div>
+
+  </div>
+
+  <script>
+
+    let countdown = document.getElementById("countdown");
+    let message = document.getElementById("message");
+    let eventDate = document.getElementById("eventDate");
+    let eventName = document.getElementById("eventName");
+
+    let startBtn = document.getElementById("startBtn");
+    let pauseBtn = document.getElementById("pauseBtn");
+    let resetBtn = document.getElementById("resetBtn");
+
+    let uniqueId;
+
+    // LIVE CLOCK
+
+    setInterval(function(){
+
+      let currentDate = new Date();
+
+      document.getElementById("clock").textContent =
+      "Current Time : " + currentDate.toLocaleTimeString();
+
+    },1000);
+
+
+    // START BUTTON
+
+    startBtn.addEventListener("click",function(){
+
+      clearInterval(uniqueId);
+
+      let selectedDate = new Date(eventDate.value).getTime();
+
+      uniqueId = setInterval(function(){
+
+        let currentDate = new Date().getTime();
+
+        let difference = selectedDate - currentDate;
+
+        // EVENT COMPLETED
+
+        if(difference <= 0){
+
+          clearInterval(uniqueId);
+
+          countdown.textContent = "00 : 00 : 00 : 00";
+
+          message.textContent =
+          "🎉 " + eventName.value + " Started!";
+
+          return;
+        }
+
+        // TIME CALCULATIONS
+
+        let days =
+        Math.floor(difference / (1000 * 60 * 60 * 24));
+
+        let hours =
+        Math.floor((difference % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60));
+
+        let minutes =
+        Math.floor((difference % (1000 * 60 * 60))
+        / (1000 * 60));
+
+        let seconds =
+        Math.floor((difference % (1000 * 60))
+        / 1000);
+
+        countdown.textContent =
+        days + "D : " +
+        hours + "H : " +
+        minutes + "M : " +
+        seconds + "S";
+
+
+
+        // COLOR CHANGE
+
+        countdown.classList.remove("green");
+        countdown.classList.remove("orange");
+        countdown.classList.remove("red");
+
+        if(difference > 3600000){
+
+          countdown.classList.add("green");
+
+        }
+
+        else if(difference > 600000){
+
+          countdown.classList.add("orange");
+
+        }
+
+        else{
+
+          countdown.classList.add("red");
+
+        }
+
+      },1000);
+
+    });
+
+
+
+    // PAUSE BUTTON
+
+    pauseBtn.addEventListener("click",function(){
+
+      clearInterval(uniqueId);
+
+    });
+
+
+
+    // RESET BUTTON
+
+    resetBtn.addEventListener("click",function(){
+
+      clearInterval(uniqueId);
+
+      countdown.textContent =
+      "00 : 00 : 00 : 00";
+
+      eventDate.value = "";
+
+      eventName.value = "";
+
+      message.textContent = "";
+
+      countdown.classList.remove("green");
+      countdown.classList.remove("orange");
+      countdown.classList.remove("red");
+
+    });
+
+
+
+    // ENTER KEY EVENT
+
+    eventName.addEventListener("keydown",function(event){
+
+      if(event.key === "Enter"){
+
+        startBtn.click();
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
