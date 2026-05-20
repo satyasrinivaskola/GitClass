@@ -9,6 +9,7 @@ function submit_one(){
 let first=parseInt(document.getElementById("one_on").value);
 let last=parseInt(document.getElementById("two_of").value);
 let b=document.getElementById("header_one");
+console.log(first>last?"inactive":"active")
 
  if(first > last){
 count=first;

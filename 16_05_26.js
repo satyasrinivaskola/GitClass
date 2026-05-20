@@ -8,10 +8,19 @@ let uniqueId;
 let isrunning=false;
 let maximum_update;
 let arr=[]
-let arr2
+let arr2console.log("Hello Today dev");
+function click_fn(event){
+console.log(event)
+if(event.key==="Enter"){
+console.log("click button is active")}}
+
+let click_btn=document.getElementById("click_btn");
+click_btn.addEventListener("keydown",click_fn);
 let keyevent=document.getElementById("keyevent");
-keyevent.addEventListener("keydown",(()=>{if(event.key!=="Enter"){console.log("keyevent")}
-}))
+keyevent.addEventListener(click,(()=>{if(event.key!=="Enter")
+{console.log("keyevent")}
+}));
+/*
  function start_f(){
 
  let num1=document.getElementById("num1").value;

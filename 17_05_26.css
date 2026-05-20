@@ -8,3 +8,11 @@ color: white;
 label{
     color: mediumvioletred;
 }
+
+li{
+list-style-type:decimal;
+}
+img{
+height:400px;
+width:200px;
+border-radius:10px;}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Student Registration Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+background-color:#f2f2f2;
+padding:20px;
+}
+
+.container{
+background-color:white;
+padding:20px;
+width:400px;
+margin:auto;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:10px;
+margin-bottom:5px;
+}
+
+button{
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+#submitBtn{
+background-color:blue;
+color:white;
+}
+
+#resetBtn{
+background-color:gray;
+color:white;
+}
+
+.error{
+color:red;
+font-size:14px;
+}
+
+.success{
+color:green;
+font-size:16px;
+}
+
+.dark-mode{
+background-color:black;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="heading">Student Registration</h1>
+
+<form id="myForm">
+
+<input type="text" id="firstName" placeholder="First Name">
+<p id="firstNameError" class="error"></p>
+
+<input type="text" id="lastName" placeholder="Last Name">
+<p id="lastNameError" class="error"></p>
+
+<input type="email" id="email" placeholder="Email">
+<p id="emailError" class="error"></p>
+
+<input type="password" id="password" placeholder="Password">
+<p id="passwordStrength"></p>
+
+<p id="charCount"></p>
+
+<select id="course">
+<option value="">Select Course</option>
+<option>JavaScript</option>
+<option>Python</option>
+<option>React</option>
+</select>
+
+<p id="courseText"></p>
+
+<button type="submit" id="submitBtn">Submit</button>
+
+<button type="button" id="resetBtn">Reset</button>
+
+</form>
+
+<p id="successMessage" class="success"></p>
+
+<button id="darkModeBtn">Dark Mode</button>
+
+<h3 id="timer"></h3>
+
+</div>
+
+<script src="Registration_form.js">
+
+
+</script>
+
+</body>
+</html>
