@@ -1,5 +1,8 @@
 console.log("22-05-26 hh");
-
+let parent_id=document.querySelectorAll("#parent_id");
+let child_id=document.getElementById("child_id");
+console.log(parent_id[0])
+/*
 
 function test(n){switch(n){
 case "sat":
@@ -24,8 +27,7 @@ return "Not Found"
 
 console.log(test("sat"))
 
-let parent_id=document.getElementById("parent_id");
-let child_id=document.getElementById("child_id");
+
 function parent(){
 console.log("parent_id")}
 function child_e(event){
@@ -70,3 +72,24 @@ const arr=[1,7,8,9]
 const dat=new Array(1,4,5,6)//temoprial 
 const dat=[1,4,5,6] //ES6
 console.log(dat)
+
+//JSON.stringfy(value);
+//JSON.parse(value)
+*/
+arr=[3,6,7,89]
+const[x,y,...res]=arr
+console.log(res)
+let ptp=[]
+ptp=[...arr,"satya"]
+console.log(ptp)
+for(let age=20;age<0;i--){
+console.log("gggg")}
+
+let sum=0;
+for(i=0;i<arr.length;i++){
+sum=sum+arr[i];
+}
+console.log(sum)
+const dd=arr.reduce((x,y)=>acc+tot,2)
+
+console.log(dd)
